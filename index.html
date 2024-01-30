@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Scratch</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  </head>
+  <body>
+    <!--导航栏
+    注意固定页边距和响应式设计的导航按钮-->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container">
+            <a href="#" class="navbar-brand">Bootstrap入门</a>
+
+            <!--小页面：下拉式按钮-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!--大页面：并排式按钮-->
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><div class="nav-link">前端知识</div></li>
+                    <li class="nav-item"><div class="nav-link">后端知识</div></li>
+                    <li class="nav-item"><div class="nav-link">数据库知识</div></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--每个模块需要考虑：
+    1. 边距padding, margin, etc.
+    2. 背景颜色与文字颜色
+    3. 文字、图片等的对齐方式
+    4. 响应式设计下的变化
+    5. 模块下各个小组件的layout
+    -->
+
+    <!--响应式设计：在页面大小分别为sm-md-lg-xl-xxl的时候，页面应呈现什么变化？
+    使用<d-{页面大小}-block>等方式来调节不同大小的呈现-->
+
+    <!--主海报
+    格式：
+    1. section大框架
+    2. container框住固定样式
+    3. div设置整个sec的样式
+    4. 分成左、右部分，分别设置具体的元素及其样式
+
+    layout:
+    弹性格子布局，左右排列，d-flex
+
+    响应式设计：
+    小页面图片消失文字居中
+    大页面左字右图
+    -->
+    <!--注：lorem可以自动生成一段测试文本，lorem*2可以控制测试文本的长度-->
+    <section class="p-5 bg-dark text-light text-sm-start text-center">
+        <div class="container">
+            <div class="d-flex">
+                <!--左：文字按钮部分-->
+                <div>
+                    <h1><span class="text-warning">BootStrap</span> Scratch Mini Project</h1>
+                    <p class="my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis adipisci inventore quibusdam, tempore asperiores expedita incidunt dolore reiciendis neque molestias quisquam tenetur! Nisi, tempora tempore. Quia tempora quis labore saepe?</p>
+                    <button class="btn btn-primary btn-lg">Getting Started!</button>
+                </div>
+                <!--右：图片部分-->
+                <img src="./images/showcase.svg" alt="showcase" class="w-50 d-none d-md-block">
+            </div>
+        </div>
+    </section>
+
+    
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>
