@@ -93,14 +93,11 @@
 <br>
 
 ## Chapter Ⅱ 编译：自定义bootstrap样式
-
-
-
-
-
+<marker>tbc</marker>
 
 ## Bootstrap Docs
 具体bootstrap常用内容参见<mark>bootstrap docs整理 tbc</mark>和官方文档  
+
 如导航栏模块：
 ### navbar
 **1. navbar基础**  
@@ -167,7 +164,7 @@
 \<div>导航栏细项的超链接：
 - nav-link:导航栏细项的超链接样式
 
-## 关于设计
+## 最后的最后：关于设计
 可以通过tailwind，bootstrap等的底层样式快速开发，也可以遵循设计准则来自定义设计
 ### 设计系统-尺寸
 尺寸原理：
