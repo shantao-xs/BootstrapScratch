@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap Scratch</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  </head>
+    <link rel="stylesheet" href="./style.css">
+</head>
   <body>
     <!--导航栏
-    注意固定页边距和响应式设计的导航按钮-->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    注意固定页边距和响应式设计的导航按钮
+    !导航栏在页面上固定：fixed-top + 避免固定的导航栏挡住下面的section：在css里增加一个body::before伪元素
+        ——怎么知道navbar多高？用开发者工具看它的height
+    -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
         <div class="container">
             <a href="#" class="navbar-brand">Bootstrap入门</a>
 
@@ -29,40 +33,15 @@
         </div>
     </nav>
 
-    <!--每个模块需要考虑：
-    1. 边距padding, margin, etc.
-    2. 背景颜色与文字颜色
-    3. 文字、图片等的对齐方式
-    4. 响应式设计下的变化
-    5. 模块下各个小组件的layout
-    -->
-
-    <!--响应式设计：在页面大小分别为sm-md-lg-xl-xxl的时候，页面应呈现什么变化？
-    使用<d-{页面大小}-block>等方式来调节不同大小的呈现-->
-
-    <!--主海报
-    格式：
-    1. section大框架
-    2. container框住固定样式
-    3. div设置整个sec的样式
-    4. 分成左、右部分，分别设置具体的元素及其样式
-
-    layout:
-    弹性格子布局，左右排列，d-flex
-
-    响应式设计：
-    小页面图片消失文字居中
-    大页面左字右图
-    -->
     <!--注：lorem可以自动生成一段测试文本，lorem*2可以控制测试文本的长度-->
     <section class="p-5 bg-dark text-light text-sm-start text-center">
         <div class="container">
             <div class="d-flex">
                 <!--左：文字按钮部分-->
                 <div>
-                    <h1><span class="text-warning">BootStrap</span> Scratch Mini Project</h1>
+                    <h1>从0开始<span class="text-warning">BootStrap</span></h1>
                     <p class="my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis adipisci inventore quibusdam, tempore asperiores expedita incidunt dolore reiciendis neque molestias quisquam tenetur! Nisi, tempora tempore. Quia tempora quis labore saepe?</p>
-                    <button class="btn btn-primary btn-lg">Getting Started!</button>
+                    <button class="btn btn-primary btn-lg my-4">Getting Started!</button>
                 </div>
                 <!--右：图片部分-->
                 <img src="./images/showcase.svg" alt="showcase" class="w-50 d-none d-md-block">
@@ -70,7 +49,224 @@
         </div>
     </section>
 
-    
+    <!--注册区
+    包括一个输入框和按钮
+    ！弹性格子布局：在页面变化大小时，灵活左右排列元素，自动调整元素内文本，d-flex
+
+    为非div块组件设计自适应条件：当页面>min width时，button要是原始大小的50%；否则100%
+    -->
+    <section class="p-5 bg-primary text-light">
+        <div class="container">
+           <div class="d-md-flex justify-content-between align-items-center">
+                <h3 class="mb-4">现在开始订阅newsletter学习BootStrap</h3>
+                <div class="input-group larger-display">
+                    <input type="text" class="form-control" placeholder="请输入你的邮箱地址">
+                    <button class="btn btn-dark btn-lg">订阅推送</button>
+                </div>
+           </div>
+        </div>
+    </section>
+
+    <!--栏目区
+    三个栏目的卡片
+    ！栅栏系统：一个row里，每个col平均大小，横向排列：class=row, class=col
+    ！自适应：大页面横向，小页面纵向排列：col-md
+    -->
+    <section class="p-5">
+        <div class="container">
+            <div class="row g-4">
+                <!--每一col里有个栏目的card-->
+                <!--前端栏目-->
+                <div class="col-md">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body text-center">
+                            <div class="card-title">前端知识</div>
+                            <div class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores veniam, neque assumenda sapiente saepe harum optio quidem totam.</div>
+                            <button href="#" class="btn btn-primary mt-2">学习前端</button>
+                        </div>
+                    </div>
+                </div>
+                <!--后端栏目-->
+                <div class="col-md">
+                    <div class="card bg-secondary text-light">
+                        <div class="card-body text-center">
+                            <div class="card-title">后端知识</div>
+                            <div class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores veniam, neque assumenda sapiente saepe harum optio quidem totam.</div>
+                            <button href="#" class="btn btn-dark mt-2">学习后端</button>
+                        </div>
+                    </div>
+                </div>
+                <!--数据库栏目-->
+                <div class="col-md">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body text-center">
+                            <div class="card-title">数据库知识</div>
+                            <div class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores veniam, neque assumenda sapiente saepe harum optio quidem totam.</div>
+                            <button href="#" class="btn btn-primary mt-2">学习数据库</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--相关简介1
+    ！栅栏系统+自适应：卡片水平垂直均剧中分布，大页面左右分布，小页面上下分布，左图右字
+    -->
+    <section class="p-5">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <!--左图-->
+                <div class="col-md p-5">
+                    <img src="./images/1.svg" alt="img1" class="img-fluid">
+                </div>
+                <!--右字-->
+                <div class="col-md p-5">
+                    <h2><b>课程介绍</b></h2>
+                    <p class="lead my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                    <p class="my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. In repudiandae ex consequatur laudantium voluptatibus beatae magni animi praesentium, facilis molestiae veritatis eligendi assumenda saepe sit. Accusamus sapiente distinctio ratione deleniti.</p>
+                    <button class="btn btn-secondary my-4">了解更多</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--相关简介2-->
+    <section class="p-5 bg-dark text-light">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <!--左字-->
+                <div class="col-md p-5">
+                    <h2><b>Tailwind指北</b></h2>
+                    <p class="lead my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                    <p class="my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. In repudiandae ex consequatur laudantium voluptatibus beatae magni animi praesentium, facilis molestiae veritatis eligendi assumenda saepe sit. Accusamus sapiente distinctio ratione deleniti.</p>
+                    <button class="btn btn-light my-4">了解更多</button>
+                </div>
+                <!--右图-->
+                <div class="col-md p-5">
+                    <img src="./images/2.svg" alt="img2" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--常见问题
+    ！Accordion组件：从bootstrap中复制；想要第一个下拉框的解答文本展开可以增加class=show
+    -->
+    <section class="p-5">
+        <div class="container">
+            <h2 class="text-center">常见问题</h2>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                      常见问题1
+                    </button>
+                  </h2>
+                  <div id="flush-collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">该回答默认展开：常见问题的解答和代码格式<code>.accordion-flush</code>示例。</div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                        常见问题2
+                    </button>
+                  </h2>
+                  <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">常见问题的解答和代码格式<code>.accordion-flush</code>示例。</div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                        常见问题3
+                    </button>
+                  </h2>
+                  <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">常见问题的解答和代码格式<code>.accordion-flush</code>示例。</div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </section>
+
+    <!--讲师介绍-->
+    <!--栅栏系统-卡片：大页面并排，中页面两两一排，小页面垂直排列
+        栅栏一共分为12格，如果每个card6格，则两两并排：col-md-6，col-lg-3
+    卡片：card,card-title,card-body,card-text
+    -->
+    <section class="p-5 bg-primary">
+        <div class="container">
+            <h2 class="text-center text-light">讲师介绍</h2>
+            <p class="text-center text-light my-4 lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis enim soluta at dolorem accusamus! Maiores expedita corrupti laboriosam, optio enim officiis perspiciatis magnam quis.</p>
+            <div class="row g-4">
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-light h-100">
+                        <div class="card-body text-center">
+                            <img src="./images/teacher-Maru.png" alt="teacher1" class="mb-2 rounded-circle">
+                            <h3 class="card-title">Maru</h3>
+                            <p class="card-text">难道只有人类的思维才配拥有自我意识吗？虽然机器人的大脑构造与我们截然不同，那也不代表我们就应该这样不尊重、不认可他们啊。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-light h-100">
+                        <div class="card-body text-center">
+                            <img src="./images/teacher-Sebastian.png" alt="teacher2" class="mb-2 rounded-circle">
+                            <h3 class="card-title">Sebastian</h3>
+                            <p class="card-text">我正在为我的乐队创作新曲，但是我完全没有灵感……嘿……你觉得我的新歌该是什么主题的？随便吧。反正都是难听死的。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-light h-100">
+                        <div class="card-body text-center">
+                            <img src="./images/teacher-Abigail.png" alt="teacher3" class="mb-2 rounded-circle">
+                            <h3 class="card-title">Abigail</h3>
+                            <p class="card-text">今天小鸟们叫得好欢啊。它们的头脑简单，根本就不担心未来。像它们那样也挺好的，对不对？</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-light h-100">
+                        <div class="card-body text-center">
+                            <img src="./images/teacher-Dwarf.png" alt="teacher4" class="mb-2 rounded-circle">
+                            <h3 class="card-title">Dwarf</h3>
+                            <p class="card-text">很久之前，我的族人了解先进科技的奥秘。考古发现可以证明这一点。但我好奇它是从何而来？向何而去？我想这些问题永远都不会有答案……</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--联系我们
+    ！list group组件：从bootstrap中复制；
+    -->
+    <section class="p-5">
+        <div class="container">
+            <h2 class="text-center mb-4">联系我们</h2>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">电话：000-0000-0000</li>
+                <li class="list-group-item">地址：星露谷鹈鹕镇社区中心</li>
+                <li class="list-group-item">邮箱：pelicantown@stardewValley.com</li>
+              </ul>
+        </div>
+    </section>
+
+    <!--页脚-->
+    <footer class="p-3 bg-dark text-light text-center">
+        <div>
+            <p>Tao's Mini Project | 2024 | Access <a href="https://github.com/shantao-xs" class="link-white">GitHub shantao-xs</a> for more projects.</p>
+        </div>
+    </footer>
+
+
+                
 
 
 
