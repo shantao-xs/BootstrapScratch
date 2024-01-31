@@ -1,0 +1,141 @@
+//why scss？让css样式的编写更加快捷简便，之后可以用同名css文件实施样式效果。用less语法编写，1用嵌套替代层叠，2可以定义变量$（可以通过修改变量批量改变样式了）
+//  scss定义变量逻辑：先定义，再import。可以覆盖bootstrap原来设定的变量。
+//      bootstrap原有变量查看：_variables.scss中有配置变量（如primary色）和细节变量（如blue色）
+
+/**bootstrap变量的设定规则
+以grays变量为例，从100-900，说明灰色越来越深，可以设定gray-100的具体灰色是#????，也可以把gray-100变量应用到别的配色变量上去，比如secondary配色
+!default表示不默认，即可以重新覆盖此变量，改变bootstrap的原始变量设定
+
+$grays: (
+  "100": $gray-100,
+  "200": $gray-200,
+  "300": $gray-300,
+  ......
+  "800": $gray-800,
+  "900": $gray-900
+) !default;
+*/
+
+//step2：写新变量，覆盖bootstrap旧变量。使用theme-kit实时查看自定义设定后的效果。注意新变量里没有!default
+//step2.1: 改颜色：基础配色 & 渐变色gradient
+$purple-100: #c4c6ff;
+$purple-200: #a2a5fc;
+$purple-300: #8888fc;
+$purple-400: #7069fa;
+$purple-500: #5d55fa;
+$purple-600: #4d3df7;
+$purple-700: #3525e6;
+$purple-800: #1d0ebe;
+$purple-900: #0c008c;
+
+$gray-100: #f0f4f8;
+$gray-200: #d9e2ec;
+$gray-300: #bcccdc;
+$gray-400: #9fb3c8;
+$gray-500: #829ab1;
+$gray-600: #627d98;
+$gray-700: #486581;
+$gray-800: #334e68;
+$gray-900: #243b53;
+
+$purple: $purple-500;
+
+$primary: $purple;
+$secondary: $gray-600;
+
+$gradient: linear-gradient(
+    to right,
+    rgba($primary, 0.95),
+    rgba($purple-300, 0.95)
+);
+
+
+//step2.2: 改边距
+$spacer: 1rem;
+$spacers: (
+    0: 0,
+    1: $spacer * 0.25,
+    2: $spacer * 0.5,
+    3: $spacer * 0.75,
+    4: $spacer,
+    5: $spacer * 1.5,
+    6: $spacer * 2,
+    7: $spacer * 3,
+    8: $spacer * 4,
+    9: $spacer * 6,
+    10: $spacer * 8,
+    11: $spacer * 12,
+    12: $spacer * 16,
+    13: $spacer * 24,
+    14: $spacer * 32,
+    15: $spacer * 40,
+    16: $spacer * 48,
+);
+
+
+//step2.3: 改字号
+$font-size-base:              1rem;
+
+$h1-font-size:                $font-size-base * 3;
+$h2-font-size:                $font-size-base * 2;
+$h3-font-size:                $font-size-base * 1.5;
+$h4-font-size:                $font-size-base * 1.25;
+$h5-font-size:                $font-size-base * 1.125;
+$h6-font-size:                $font-size-base;
+$h7-font-size:                $font-size-base * 0.875;
+$h8-font-size:                $font-size-base * 0.75;
+
+$font-sizes: (
+  1: $h1-font-size,
+  2: $h2-font-size,
+  3: $h3-font-size,
+  4: $h4-font-size,
+  5: $h5-font-size,
+  6: $h6-font-size,
+  7: $h7-font-size,
+  8: $h8-font-size
+);
+
+
+//step3: 修改组件
+//step3.1: 改变已有组件，如Accordion组件：修改icon的图标颜色宽度等，用bootstrap的icons更换原有的svg
+//  更换icon，把点击展开改为+(icon)，展开后收拢改为-(active icon)
+//      需要把第一个path的d复制到原组件path的d里，第二个path整体复制到svg标签内部并将"改为'
+$accordion-icon-width:                    2rem;
+$accordion-icon-color:                    $secondary;
+$accordion-icon-active-color:             $primary;
+$accordion-button-icon:         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-color}'><path fill-rule='evenodd' d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16'/><path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4'/></svg>") ;
+$accordion-button-active-icon:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-active-color}'><path fill-rule='evenodd' d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16'/><path d='M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8'/></svg>");
+
+//step4: 修改和新增样式
+//step4.1 在讲师介绍下设计一个下划线
+//  创建before和after两个伪类
+.heading-line {
+    &::before {
+        content: "";
+        width: 10rem;
+        height: 0.1rem;
+        display: block;
+        margin: 0 auto;
+        background-color: $primary;
+    }
+
+    &::after {
+        content: "";
+        width: 2rem;
+        padding-top: 0.5rem;
+        height: 0.2rem;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 1rem;
+        background-color: $primary;
+    }
+}
+
+//step5：在index.html中，把原来cdn的引用删掉，改为引用本地文件main.css
+
+//step6: 利用其他工具实现效果，如制造波浪getwaves.io
+
+//step1: npm安装bootstrap，引入bootstrap.scss
+@import "../node_modules/bootstrap/scss/bootstrap.scss"
+

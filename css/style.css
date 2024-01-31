@@ -1,0 +1,16 @@
+@media (min-width: 768px){
+    .larger-display{
+        width: 50%;
+    }
+}
+
+a.link-white{
+    color: white;
+    text-decoration: underline;
+}
+
+body::before{
+    display: block;
+    content: "";
+    height: 56px;
+}
