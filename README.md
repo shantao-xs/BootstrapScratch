@@ -1,9 +1,3 @@
-<<<<<<< Updated upstream
-# BootstrapScratch
-=======
-<<<<<<< Updated upstream
-# BootstrapScratch
-=======
 # Bootstrap v5 from scratch
 ## TODO
 - [ ] 能不能做一个交互式的doc，点击哪个部分就显示对应代码？现在还是不够直观
@@ -239,4 +233,3 @@ $grays: (
 ### 设计系统-颜色
 配色问题：  
 
->>>>>>> Stashed changes
