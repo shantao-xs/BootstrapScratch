@@ -1,29 +1,31 @@
-<<<<<<< Updated upstream
-# BootstrapScratch
-=======
 # Bootstrap v5 from scratch
 ## TODO
 - [ ] 能不能做一个交互式的doc，点击哪个部分就显示对应代码？现在还是不够直观
 - [ ] theme-kit应如何自动化生成？
 - [ ] 为什么index.html用的是fs-3？明明main.scss和bootstrap.css里面没有提到过fs这个属性，是谁定义了这个变量？
 
-## Intro
-本项目为参照[该快速入门课程](https://gitee.com/MASUKA/bootstrap5_2021)的练手自习
+## INTRO
+本项目为参照[up主“我在B站玩编程”的bootstrap快速入门课程](https://gitee.com/MASUKA/bootstrap5_2021)的练手自习
 
-## Toolkit
+## TOOLKIT
 具体toolkit参见<mark>前端toolkit集合 tbc</mark>
 ### 1. skeleton: html
 插件：
-- Emmet - 快捷填充代码
-    - ! 生成html页面框架
-    - .test 
-### 2. css: bootstrap
-引入[bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)的js和cs文件，把script放到到\<body>底部
+- Live server - 实时预览html页面
+- Auto Rename Tag - 元素变化后自动更改\</end>tag
 
-## Chapter Ⅰ 入门：搭建sections与bootstrap基础样式
+
+### 2. css: bootstrap
+- 引入[bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)的js和cs文件+把script放到到\<body>底部 
+    - 方法1：引入CDN
+    - 方法2：npm install
+- live sass compiler - 快速编写scss格式文件并自动生成css格式
+- theme-kit - 实时查看自定义样式设计的效果
+
+## CHAPTER1 入门：使用bootstrap内置样式
 ### Core Notion：
-**1. 页面模块化，模块组块化**：模块中的每个小组块用div来框住区隔   
-**2. 响应式设计** 
+> 1. 页面模块化，模块组块化：模块中的每个小组块用div来框住区隔 
+> 2. 响应式设计
 
 <br>
 
@@ -97,7 +99,7 @@
 
 <br>
 
-## Chapter Ⅱ 编译：自定义bootstrap样式
+## CHAPTER2 编译：自定义bootstrap样式
 ### 1. 改编bootstrap
 #### step 0: why use scss？
 *让css样式的编写更加快捷简便，用less语法编写：
@@ -160,7 +162,7 @@ $grays: (
 #### 2.2 拓展
 - 利用其他工具实现效果，如制造波浪getwaves.io
 
-## Bootstrap Docs
+## BOOTSTRAP DOCS
 具体bootstrap常用内容参见<mark>bootstrap docs整理 tbc</mark>和官方文档  
 
 如导航栏模块：
@@ -229,10 +231,10 @@ $grays: (
 \<div>导航栏细项的超链接：
 - nav-link:导航栏细项的超链接样式
 
-## 最后的最后：关于设计
+## ABOUT DESIGN
 可以通过tailwind，bootstrap等的底层样式快速开发，也可以遵循设计系统准则来自定义设计
 ### 设计系统-边距/字号/
 尺寸原理：
 ### 设计系统-颜色
-配色问题：
->>>>>>> Stashed changes
+配色问题：  
+
